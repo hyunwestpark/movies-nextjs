@@ -1,4 +1,4 @@
-import { API_URL } from "../app/(home)/page";
+import { API_URL } from "../constants";
 import styles from "../styles/movie-info.module.css";
 
 interface MovieInfoProps {
@@ -6,6 +6,7 @@ interface MovieInfoProps {
 }
 
 export async function getMovie(id: string) {
+  console.log(`fetching videos: ${Date.now()}`);
   const response = await fetch(`${API_URL}/${id}`);
   return response.json();
 }
