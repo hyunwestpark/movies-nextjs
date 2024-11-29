@@ -1,5 +1,6 @@
 import { API_URL } from "../constants";
 import styles from "../styles/movie-credits.module.css";
+import CreditProfile from "./credit-profile";
 
 interface MovieCreditsProps {
   id: string;
@@ -19,7 +20,7 @@ export default async function MovieCredits({ id }: MovieCreditsProps) {
   return (
     <div>
       <h3 className={styles["credit-type"]}>
-        Actor (
+        Actors (
         {
           credits.filter((credit) => credit.known_for_department === "Acting")
             .length
@@ -29,22 +30,18 @@ export default async function MovieCredits({ id }: MovieCreditsProps) {
       {credits
         .filter((credit) => credit.known_for_department === "Acting")
         .map((credit) => (
-          <img
-            src={
-              credit.profile_path
-                ? credit.profile_path
-                : "/image/blank-profile.png"
-            }
-            key={credit.id}
-            alt={credit.original_name}
-            className={styles["profile-img"]}
+          <CreditProfile
+            id={credit.id}
+            profile_path={credit.profile_path}
+            name={credit.name}
+            character={credit.character}
           />
         ))}
       {credits.filter((credit) => credit.known_for_department === "Crew")
         .length ? (
         <div>
           <h3 className={styles["credit-type"]}>
-            Crew (
+            Crews (
             {
               credits.filter((credit) => credit.known_for_department === "Crew")
                 .length
@@ -54,15 +51,11 @@ export default async function MovieCredits({ id }: MovieCreditsProps) {
           {credits
             .filter((credit) => credit.known_for_department === "Crew")
             .map((credit) => (
-              <img
-                src={
-                  credit.profile_path
-                    ? credit.profile_path
-                    : "/image/blank-profile.png"
-                }
-                key={credit.id}
-                alt={credit.original_name}
-                className={styles["profile-img"]}
+              <CreditProfile
+                id={credit.id}
+                profile_path={credit.profile_path}
+                name={credit.name}
+                character={credit.character}
               />
             ))}
         </div>

@@ -1,13 +1,56 @@
+.profile-container {
+  position: relative;
+  display: inline-block;
+}
+
 .profile-img {
   width: 35px; /* 원하는 크기로 설정 */
   height: 35px; /* 원하는 크기로 설정 */
   border-radius: 50%; /* 원형으로 만들기 위해 반지름을 이미지의 절반으로 설정 */
   object-fit: cover; /* 이미지 비율을 유지하며 잘리더라도 전체를 채움 */
   margin: 8px 8px 8px 0px; /* 이미지 간의 간격을 주기 위해 설정 */
+  transition: opacity 0.3s ease-in-out;
 }
 
 .credit-type {
   font-size: 1.2rem;
   font-weight: 500;
   margin-bottom: 8px;
+}
+
+.profile-container:hover .profile-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.profile-tooltip {
+  position: absolute;
+  top: -25px; /* 이미지 위쪽에 위치하도록 조정 */
+  left: 40%;
+  transform: translateX(-50%);
+  background-color: white;
+  color: black;
+  padding: 5px 10px;
+  border-radius: 8px; /* 모서리를 둥글게 설정 */
+  font-size: 0.9rem;
+  text-align: center;
+  opacity: 0; /* 기본적으로 보이지 않게 설정 */
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  white-space: nowrap; /* 텍스트가 길어질 경우 한 줄로 유지 */
+}
+
+.profile-tooltip::after {
+  content: "";
+  position: absolute;
+  bottom: -5px; /* 박스 아래쪽에 삼각형이 나타나도록 설정 */
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px 5px 0 5px; /* 삼각형 크기 설정 */
+  border-style: solid;
+  border-color: white transparent transparent transparent; /* 삼각형 색상 설정 */
+}
+
+.profile-tooltip span {
+  font-weight: 600;
 }
