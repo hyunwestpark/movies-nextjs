@@ -1,5 +1,5 @@
 .nav {
-  background-color: #2d2d2d;
+  background-color: rgba(53, 53, 53, 0.95);
   position: fixed;
   width: 30%;
   margin: 0 auto;
@@ -9,12 +9,18 @@
   left: 50%;
   z-index: 10;
   transform: translateX(-50%);
+  box-shadow: rgba(55, 12, 12, 0.35) 0px 5px 10px;
+  color: white;
 }
 
 .nav ul {
   display: flex;
   justify-content: center;
   gap: 50px;
+}
+
+.ul-bold {
+  font-weight: bold;
 }
 
 .nav ul li {

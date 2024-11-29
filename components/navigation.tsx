@@ -9,10 +9,18 @@ export default function Navigation() {
     <nav className={styles.nav}>
       <ul>
         <li>
-          <Link href="/">Home {path === "/" && "🔥"}</Link>
+          <Link href="/">
+            <span className={path === "/" ? styles["ul-bold"] : ""}>Home</span>{" "}
+            {path === "/" && "🔥"}
+          </Link>
         </li>
         <li>
-          <Link href="/about-us">About Us {path === "/about-us" && "🔥"}</Link>
+          <Link href="/about-us">
+            <span className={path === "/about-us" ? styles["ul-bold"] : ""}>
+              About Us
+            </span>{" "}
+            {path === "/about-us" && "🔥"}
+          </Link>
         </li>
       </ul>
     </nav>

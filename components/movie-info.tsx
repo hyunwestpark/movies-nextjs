@@ -17,8 +17,10 @@ export default async function MovieInfo({ id }: MovieInfoProps) {
     <div className={styles.container}>
       <img src={movie.poster_path} className={styles.poster} />
       <div className={styles.info}>
-        <h1 className={styles.title}>{movie.title}</h1>
-        <h3>⭐️ {movie.vote_average.toFixed(1)}</h3>
+        <div className={styles.title}>
+          <h1>{movie.title}</h1>
+          <h3>⭐️ {movie.vote_average.toFixed(1)}</h3>
+        </div>
         <p>{movie.overview}</p>
         <a href={movie.homepage} target={"_blank"}>
           Homepage &rarr;
