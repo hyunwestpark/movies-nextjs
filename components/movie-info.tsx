@@ -1,12 +1,12 @@
 import { API_URL } from "../constants";
 import styles from "../styles/movie-info.module.css";
+import MovieCredits from "./movie-credits";
 
 interface MovieInfoProps {
   id: string;
 }
 
 export async function getMovie(id: string) {
-  console.log(`fetching videos: ${Date.now()}`);
   const response = await fetch(`${API_URL}/${id}`);
   return response.json();
 }
@@ -22,6 +22,8 @@ export default async function MovieInfo({ id }: MovieInfoProps) {
           <h3>⭐️ {movie.vote_average.toFixed(1)}</h3>
         </div>
         <p>{movie.overview}</p>
+        <hr className={styles.line} />
+        <MovieCredits id={id} />
         <a href={movie.homepage} target={"_blank"}>
           Homepage &rarr;
         </a>
